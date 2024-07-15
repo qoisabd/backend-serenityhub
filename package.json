@@ -1,0 +1,23 @@
+{
+  "name": "backend-serenityhub",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Qois Abdul Qudus",
+  "license": "ISC",
+  "description": "Back-End for SerenityHub",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qoisabd/backend-serenityhub.git"
+  },
+  "keywords": [
+    "serenityhub"
+  ],
+  "bugs": {
+    "url": "https://github.com/qoisabd/backend-serenityhub/issues"
+  },
+  "homepage": "https://github.com/qoisabd/backend-serenityhub#readme"
+}
