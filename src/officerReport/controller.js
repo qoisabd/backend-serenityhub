@@ -5,7 +5,7 @@ async function addReport(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -15,7 +15,7 @@ async function addReport(req, res, next) {
     if (user.role === 'user') {
       res.json({
         error: 1,
-        message: 'your not allowed access',
+        message: 'Kamu tidak memiliki akses',
       });
     } else {
       const id = req.params.id;
@@ -32,14 +32,14 @@ async function addReport(req, res, next) {
         if (newOfficerReport) {
           res.json({
             status: 'ok',
-            message: 'report sent successfully',
+            message: 'Laporan berhasil dikirim',
             idReport: newOfficerReport._id,
           });
         }
       } else {
         return res.json({
           error: 1,
-          message: 'report not found',
+          message: 'Laporan tidak ditemukan',
         });
       }
     }

@@ -17,7 +17,7 @@ function decodeToken() {
       if (!user) {
         return res.json({
           error: 1,
-          message: 'token expired',
+          message: 'Token kadaluwarsa',
         });
       }
     } catch (err) {

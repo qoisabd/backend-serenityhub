@@ -17,7 +17,7 @@ router.post('/upload/image', upload.single('image'), (req, res) => {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   const file = req.file;
@@ -28,13 +28,13 @@ router.post('/upload/image', upload.single('image'), (req, res) => {
     fs.renameSync(file.path, `${file.path}.${fileType}`);
     res.status(200).json({
       status: 'ok',
-      message: 'upload image success',
+      message: 'Berhasil upload gambar',
       image: `${file.filename}.${fileType}`,
     });
   } else {
     res.json({
       error: 1,
-      message: 'upload failed, image not found',
+      message: 'Upload gambar gagal',
     });
   }
 });
@@ -59,11 +59,11 @@ router.post('/upload/image/multi', upload.array('image', 3), (req, res) => {
     // console.log(image);
     return res.json({
       status: 'ok',
-      message: 'upload image successfuly',
+      message: 'Berhasil upload gambar',
       data: imageName,
     });
   } else {
-    res.send('gagal upload');
+    res.send('Gambar gagal diupload');
   }
 });
 
@@ -73,7 +73,7 @@ router.delete('/delete/image/:name', (req, res) => {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   const imageName = req.params.name;
@@ -85,12 +85,12 @@ router.delete('/delete/image/:name', (req, res) => {
     fs.unlinkSync(filePath);
     res.json({
       status: 'ok',
-      message: `image deleted successfully`,
+      message: `Gambar berhasil dihapus`,
     });
   } else {
     res.status(404).json({
       error: 1,
-      message: `image not found`,
+      message: `Gambar tidak ditemukan`,
     });
   }
 });

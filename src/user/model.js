@@ -9,7 +9,7 @@ const userSchema = Schema(
   {
     name: {
       type: String,
-      required: [true, 'name harus ada'],
+      required: [true, 'nama harus ada'],
       minlength: 3,
       maxlength: 50,
     },
@@ -21,11 +21,11 @@ const userSchema = Schema(
     password: {
       type: String,
       required: [true, 'password harus diisi'],
-      maxlength: [255, 'Panjang password maksimal 255 karakter'],
+      maxlength: [25, 'Panjang password maksimal 25 karakter'],
     },
     role: {
       type: String,
-      enum: ['user', 'admin', 'officer', 'superadmin'],
+      enum: ['user', 'admin', 'officer'],
       default: 'user',
     },
     image: {

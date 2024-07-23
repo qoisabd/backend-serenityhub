@@ -6,7 +6,7 @@ async function addReport(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -21,7 +21,7 @@ async function addReport(req, res, next) {
     if (newReport) {
       return res.json({
         status: 'ok',
-        message: 'report sent successfully',
+        message: 'Berhasil menambahkan laporan',
         idReport: newReport._id,
       });
     }
@@ -41,7 +41,7 @@ async function getDetailReport(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -66,7 +66,7 @@ async function getDetailReport(req, res, next) {
   } catch (err) {
     return res.json({
       error: 1,
-      message: 'report not found',
+      message: 'Laporan tidak ditemukan',
     });
     next(err);
   }
@@ -201,7 +201,7 @@ async function assignReportToUnitWork(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -210,7 +210,7 @@ async function assignReportToUnitWork(req, res, next) {
     if (!userRole === 'admin') {
       res.json({
         error: 1,
-        message: 'your not allowed access',
+        message: 'Kamu tidak memiliki akses',
       });
     } else {
       const report = await ReportUser.findOneAndUpdate(
@@ -220,14 +220,14 @@ async function assignReportToUnitWork(req, res, next) {
       if (report) {
         return res.json({
           status: 'ok',
-          message: 'unit work has a job',
+          message: 'Unit kerja memiliki laporan',
         });
       }
     }
   } catch (error) {
     return res.json({
       error: 1,
-      message: 'report id or unit work not found',
+      message: 'Laporan atau unit kerja tidak ditemukan',
     });
   }
 }
@@ -236,14 +236,14 @@ async function getAllReportCoordinate(req, res, nex) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
     if (req.user.role !== 'admin') {
       res.json({
         error: 1,
-        message: 'your not allowed access',
+        message: 'Kamu tidak memiliki akses',
       });
     } else {
       const report = await ReportUser.find().select(
@@ -252,13 +252,13 @@ async function getAllReportCoordinate(req, res, nex) {
       if (report) {
         return res.json({
           status: 'ok',
-          message: 'list report and coordinate',
+          message: 'List laporan dan unit kerja',
           data: report,
         });
       } else {
         return res.status(500).json({
           error: 1,
-          message: 'error',
+          message: 'Gagal',
         });
       }
     }
@@ -273,7 +273,7 @@ async function deleteReport(req, res, next) {
   if (req.user.role !== 'admin') {
     res.json({
       error: 1,
-      message: 'your not allowed access',
+      message: 'Kamu tidak memiliki akses',
     });
   }
   try {
@@ -283,12 +283,12 @@ async function deleteReport(req, res, next) {
     if (deleteReport) {
       return res.json({
         status: 'ok',
-        message: 'delete successfull',
+        message: 'Berhasil menghapus laporan',
       });
     } else {
       return res.json({
         error: 1,
-        message: 'report not found',
+        message: 'Laporan tidak ditemukan',
       });
     }
   } catch (error) {
@@ -304,7 +304,7 @@ async function getReportByUser(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {

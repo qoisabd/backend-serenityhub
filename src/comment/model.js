@@ -8,7 +8,7 @@ const commentSchema = Schema(
     },
     message: {
       type: String,
-      required: [true, "pesan harus ada"],
+      required: [true, "Komentar harus diisi"],
       minlength: 1,
       maxlength: 200,
     },

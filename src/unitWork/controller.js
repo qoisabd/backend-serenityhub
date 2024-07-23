@@ -4,7 +4,7 @@ async function addUnitWork(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -13,7 +13,7 @@ async function addUnitWork(req, res, next) {
     if (userRole === 'user') {
       res.json({
         error: 1,
-        message: 'your not allowed access',
+        message: 'Kamu tidak memiliki akses',
       });
     } else {
       const newUnitWork = new UnitWork({ ...payload });
@@ -21,7 +21,7 @@ async function addUnitWork(req, res, next) {
       if (newUnitWork) {
         return res.json({
           status: 'ok',
-          message: 'add category sucessuflly',
+          message: 'Unit kerja berhasil ditambahkan',
           categoryId: newUnitWork._id,
         });
       }
@@ -42,7 +42,7 @@ async function deleteUnitWork(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -51,7 +51,7 @@ async function deleteUnitWork(req, res, next) {
     if (userRole === 'user') {
       res.json({
         error: 1,
-        message: 'your not allowed access',
+        message: 'Kamu tidak memiliki akses',
       });
     } else {
       let unitWork = await UnitWork.findOneAndDelete({ _id: req.params.id });
@@ -59,14 +59,14 @@ async function deleteUnitWork(req, res, next) {
       if (unitWork) {
         return res.json({
           status: 'ok',
-          message: 'delete unit work successfully',
+          message: 'Unit kerja berhasil dihapus',
         });
       }
     }
   } catch (err) {
     return res.json({
       error: 1,
-      message: 'unit work not found',
+      message: 'Unit kerja tidak ditemukan',
     });
   }
 }
@@ -75,7 +75,7 @@ async function getUnitWork(req, res, nex) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
 
@@ -85,7 +85,7 @@ async function getUnitWork(req, res, nex) {
     if (userRole === 'user') {
       res.json({
         error: 1,
-        message: 'your not allowed access',
+        message: 'Kamu tidak memiliki akses',
       });
     }
     const unitWork = await UnitWork.find();

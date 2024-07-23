@@ -4,7 +4,7 @@ async function addCategory(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -13,7 +13,7 @@ async function addCategory(req, res, next) {
     if (userRole === 'user') {
       res.json({
         error: 1,
-        message: 'your not allowed access',
+        message: 'Kamu tidak memiliki akses',
       });
     } else {
       const newCategory = new Category({ ...payload });
@@ -21,7 +21,7 @@ async function addCategory(req, res, next) {
       if (newCategory) {
         return res.json({
           status: 'ok',
-          message: 'add category sucessuflly',
+          message: 'Tambah kategori berhasil',
           categoryId: newCategory._id,
         });
       }
@@ -62,7 +62,7 @@ async function deleteCategory(req, res, next) {
   if (!req.user && userRole === 'user') {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -73,12 +73,12 @@ async function deleteCategory(req, res, next) {
     if (category) {
       return res.json({
         status: 'ok',
-        message: 'delete category successfully',
+        message: 'Hapus kategori berhasil',
       });
     } else {
       return res.json({
         error: 1,
-        message: 'category not found',
+        message: 'Kategori tidak ditemukan',
       });
     }
   } catch (err) {

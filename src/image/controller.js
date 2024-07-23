@@ -17,7 +17,7 @@ router.post('/uploadimage', upload.single('image'), (req, res) => {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   const file = req.file;
@@ -34,13 +34,13 @@ router.post('/uploadimage', upload.single('image'), (req, res) => {
     fs.renameSync(file.path, `${file.path}.${fileType}`);
     res.send({
       status: 'ok',
-      message: 'upload image success',
+      message: 'Gambar berhasil diupload',
       image: `${file.filename}.${fileType}`,
     });
   } else {
     res.json({
       error: 1,
-      message: 'upload failed! image not found',
+      message: 'Upload gambar gagal',
     });
   }
 });
@@ -65,11 +65,11 @@ router.post('/multiupload', upload.array('image', 3), (req, res) => {
     console.log(image);
     return res.json({
       status: 'ok',
-      message: 'upload image successfuly',
+      message: 'Gambar berhasil diupload',
       data: imageName,
     });
   } else {
-    res.send('gagal upload');
+    res.send('Gambar gagal diupload');
   }
 });
 

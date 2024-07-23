@@ -13,7 +13,7 @@ async function officerRegister(req, res, next) {
   if (req.user.role !== 'admin') {
     res.json({
       error: 1,
-      message: 'your not allowed access',
+      message: 'Kamu tidak memiliki akses',
     });
   }
   try {
@@ -25,7 +25,7 @@ async function officerRegister(req, res, next) {
     if (user) {
       return res.json({
         status: 'ok',
-        message: 'register successfuly',
+        message: 'Berhasil mendaftar',
       });
     }
     // return res.json(user);
@@ -47,7 +47,7 @@ async function adminRegister(req, res, next) {
   if (payload.secretKey !== secret) {
     res.json({
       error: 1,
-      message: 'secret key wrong',
+      message: 'Kode salah',
     });
   }
   try {
@@ -59,7 +59,7 @@ async function adminRegister(req, res, next) {
     if (user) {
       return res.json({
         status: 'ok',
-        message: 'register successfuly',
+        message: 'Berhasil mendaftar',
       });
     }
     // return res.json(user);
@@ -84,7 +84,7 @@ async function register(req, res, next) {
     if (user) {
       return res.json({
         status: 'ok',
-        message: 'register successfuly',
+        message: 'Berhasil mendaftar',
       });
     }
     // return res.json(user);
@@ -104,7 +104,7 @@ async function changeUserPassword(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   try {
@@ -120,19 +120,19 @@ async function changeUserPassword(req, res, next) {
       if (updateUser) {
         return res.json({
           status: 'ok',
-          message: 'password has been changed',
+          message: 'Password berhasil diubah',
         });
       }
     } else {
       return res.json({
         error: 1,
-        message: 'Old password wrong',
+        message: 'Password lama salah',
       });
     }
   } catch (err) {
     return res.json({
       error: 1,
-      message: 'change password failed',
+      message: 'Ganti passwword gagal',
     });
   }
 }
@@ -161,7 +161,7 @@ async function login(req, res, next) {
     if (!user)
       return res.json({
         error: 1,
-        message: 'email or password incorrect',
+        message: 'Email atau password salah',
       });
 
     let signed = jwt.sign(user, config.secretKey);
@@ -176,7 +176,7 @@ async function login(req, res, next) {
     );
     return res.json({
       status: 'ok',
-      message: 'logged in successfully',
+      message: 'Login sukses',
       user: user,
       token: signed,
     });
@@ -187,7 +187,7 @@ function me(req, res, next) {
   if (!req.user) {
     return res.json({
       error: 1,
-      message: `You're not not login or token expired`,
+      message: `Kamu belum login atau token kadaluwarsa`,
     });
   }
   return res.json(req.user);
@@ -203,13 +203,13 @@ async function logout(req, res, next) {
   if (!user || !token) {
     return res.json({
       error: 1,
-      message: 'No user found',
+      message: 'User tidak ditemukan',
     });
   }
 
   return res.json({
     error: 0,
-    message: 'Logout successfully',
+    message: 'Berhasil keluar',
   });
 }
 
