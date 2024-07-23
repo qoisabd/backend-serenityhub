@@ -155,64 +155,7 @@ describe('API Endpoints', function () {
         });
     });
   });
-
-  // // Test /report endpoint
-  // describe('/GET report', () => {
-  //   it('it should get all reports', (done) => {
-  //     chai
-  //       .request(server)
-  //       .get('/report')
-  //       .set('Authorization', 'Bearer ' + token)
-  //       .end((err, res) => {
-  //         res.should.have.status(200, 'Endpoint /report tidak merespons dengan status 200');
-  //         res.body.should.be.a('object', 'Respon dari endpoint /report bukan objek');
-  //         res.body.should.have.property('status').eql('ok', 'Properti status dalam respon bukan "ok"');
-  //         res.body.should.have.property('data').be.a('array', 'Properti data dalam respon bukan array');
-  //         done();
-  //       });
-  //   });
-  // });
-
-  // // Test /report/:id endpoint
-  // describe('/GET report/:id', () => {
-  //   it('it should get report detail', (done) => {
-  //     let reportId = '1234567890'; // Ganti dengan ID laporan yang valid
-  //     chai
-  //       .request(server)
-  //       .get('/report/' + reportId)
-  //       .set('Authorization', 'Bearer ' + token)
-  //       .end((err, res) => {
-  //         res.should.have.status(200, 'Endpoint /report/:id tidak merespons dengan status 200');
-  //         res.body.should.be.a('object', 'Respon dari endpoint /report/:id bukan objek');
-  //         res.body.should.have.property('status').eql('ok', 'Properti status dalam respon bukan "ok"');
-  //         res.body.should.have.property('data').be.a('array', 'Properti data dalam respon bukan array');
-  //         done();
-  //       });
-  //   });
-  // });
-
-  // // Test /comment/:id endpoint
-  // describe('/POST comment/:id', () => {
-  //   it('it should add a comment', (done) => {
-  //     let reportId = '1234567890'; // Ganti dengan ID laporan yang valid
-  //     let comment = {
-  //       message: 'This is a test comment',
-  //     };
-  //     chai
-  //       .request(server)
-  //       .post('/comment/' + reportId)
-  //       .set('Authorization', 'Bearer ' + token)
-  //       .send(comment)
-  //       .end((err, res) => {
-  //         res.should.have.status(200, 'Endpoint /comment/:id tidak merespons dengan status 200');
-  //         res.body.should.be.a('object', 'Respon dari endpoint /comment/:id bukan objek');
-  //         res.body.should.have.property('status').eql('ok', 'Properti status dalam respon bukan "ok"');
-  //         res.body.should.have.property('message').eql('comment added', 'Properti message dalam respon bukan "comment added"');
-  //         done();
-  //       });
-  //   });
-  // });
-
+  
   describe('API Endpoints', () => {
     // Test /logout endpoint
     describe('/POST logout', () => {

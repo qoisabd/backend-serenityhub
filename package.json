@@ -1,27 +1,26 @@
 {
   "name": "backend-serenityhub",
   "version": "1.0.0",
+  "description": "Back-End for SerenityHub",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/test.js",
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "testDB": "mocha test/**/*.js"
+    "start": "nodemon index.js",
+    "testDB": "mocha test/**/*.js",
+    "dev": "node index.js",
+    "lint": "eslint ."
   },
-  "author": "Qois Abdul Qudus",
-  "license": "ISC",
-  "description": "Back-End for SerenityHub",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/qoisabd/backend-serenityhub.git"
   },
-  "keywords": [
-    "serenityhub"
-  ],
+  "keywords": [],
+  "author": "https://github.com/qoisabd/backend-serenityhub",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/qoisabd/backend-serenityhub/issues"
   },
-  "homepage": "https://github.com/qoisabd/backend-serenityhub#readme",
+  "homepage": "https://github.com/qoisabd/backend-serenityhubk#readme",
   "dependencies": {
     "assert": "^2.1.0",
     "bcrypt": "^5.0.1",
@@ -37,7 +36,8 @@
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.1",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "railway": "^2.0.17"
   },
   "devDependencies": {
     "chai": "^4.3.10",
